@@ -1,3 +1,13 @@
-<p>
-  scooter-list works!
-</p>
+    
+<agm-map  [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType' style="width:100%;height:600px;" [zoom]="13">
+
+  <agm-marker *ngFor="let scooter of scooters"
+    [latitude]="scooter.latitude"
+    [longitude]="scooter.longitude">
+  </agm-marker>
+
+    <h2>Noleggia un monopattino disponibile!</h2>
+    inserisci il codice del monopattino <input #scooter> <br>
+    <button (click)= "Signup(scooter)"> REGISTRATI </button>
+
+</agm-map>

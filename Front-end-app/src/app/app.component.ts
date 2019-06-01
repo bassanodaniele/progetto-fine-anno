@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Scooter } from './scooter-list/scooter.model';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +14,17 @@ export class AppComponent {
   serverMonoOfficine = "";
   serverMonoRent = "";
 
+  scooterList: Scooter[];
+  o: Observable<Scooter[]>;
+
   signup: boolean = false;
   signin: boolean = false;
   app: boolean = false;
 
 
-  constructor(public http:HttpClient) {  }
+  constructor(public http:HttpClient) {
+      this.GetScooters();
+   }
 
   ngOnInit() {  }
 
@@ -50,9 +57,13 @@ export class AppComponent {
   }
 
   Signin(username: HTMLInputElement, password: HTMLInputElement): void {
+
   }
 
 
-
+  GetScooters(): void {
+    this.o = this.http.get<Scooter[]>(this.serverMonoOfficine + '/getScooterList');
+    this.o.subscribe(data => {this.scooterList = data;});
+  }
 
 }
