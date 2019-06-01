@@ -1,0 +1,24 @@
+<div *ngIf="!app">
+
+  <h2>Esegui l'accesso o registrati presso il nostro servizio!</h2><br>
+  <button (click)="SignupVisibility()">REGISTRATI</button>
+  <button (click)="SigninVisibility()">SIGNIN</button>
+
+  <div *ngIf="signup">
+    nome: <input #name> <br>
+    congome: <input #surname> <br>
+    username: <input #username> <br>
+    password: <input #password> <br>
+    card: <input #card> <br>
+    <button (click)= "Signup(name, surname, username, password, card)"> REGISTRATI </button>
+  </div>
+
+  <div *ngIf="signin">
+    nome: <input #name> <br>
+    congome: <input #surname> <br>
+    <button (click)= "Signin(name, surname)"> ACCEDI </button>
+  </div>
+
+</div>
+
+<app-scooter-list *ngIf="app"></app-scooter-list>
