@@ -21,4 +21,8 @@
 
 </div>
 
-<app-scooter-list *ngIf="app" [scooters]="scooterList"></app-scooter-list>
+<div *ngIf="app">
+    <h2>Ciao {{user.nome}} {{user.cognome}}.
+    <app-scooter-list [scooters]="scooterList"></app-scooter-list>
+    <app-breakdown [serverNonoOfficine]="serverMonoOfficine"></app-breakdown>
+</div>

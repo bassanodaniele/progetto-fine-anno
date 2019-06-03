@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ScooterListComponent } from './scooter-list/scooter-list.component';
+import { BreakdownComponent } from './breakdown/breakdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScooterListComponent
+    ScooterListComponent,
+    BreakdownComponent
   ],
   imports: [
     BrowserModule

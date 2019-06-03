@@ -1,0 +1,10 @@
+<button (click)= "Signin(name, surname)"> OOPS! Segnala un guasto </button>
+
+<div *ngIf="breakdown">
+    codice del monopattino guasto: <input #scooter> <br>
+    data guasto: <input #signDate> <br>
+    data prelievo: <input #withDate> <br>
+    lista problematiche: <input #issues> <br>
+    descrizione del guasto: <input #text> <br>
+    <button (click)= "Signup(scooter, signDate, withDate, issues, text)"> MANDA RAPPORTO GUASTO </button>
+</div>

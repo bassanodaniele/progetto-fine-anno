@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Scooter } from './scooter-list/scooter.model';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,14 @@ import { Scooter } from './scooter-list/scooter.model';
 
 export class AppComponent {
 
-  serverMonoOfficine = "";
-  serverMonoRent = "";
+  serverMonoOfficine: string = ""; // link al server sul quale gira la Web App di Mono-Officine
+  serverMonoRent: string = ""; // link al server sul quale gira la Web App di Mono-Rent
+
+  user: User;
+  userO: Observable<User>;
 
   scooterList: Scooter[];
-  o: Observable<Scooter[]>;
+  scooterO: Observable<Scooter[]>;
 
   signup: boolean = false;
   signin: boolean = false;
@@ -57,13 +61,14 @@ export class AppComponent {
   }
 
   Signin(username: HTMLInputElement, password: HTMLInputElement): void {
-
+    this.userO = this.http.get<User>(this.serverMonoRent + '/' + username.value + '/' + password.value);
+    this.userO.subscribe(data => {this.user = data;});
   }
 
 
   GetScooters(): void {
-    this.o = this.http.get<Scooter[]>(this.serverMonoOfficine + '/getScooterList');
-    this.o.subscribe(data => {this.scooterList = data;});
+    this.scooterO = this.http.get<Scooter[]>(this.serverMonoOfficine + '/getScooterList');
+    this.scooterO.subscribe(data => {this.scooterList = data;});
   }
 
 }
