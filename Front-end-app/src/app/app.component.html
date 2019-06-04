@@ -22,8 +22,8 @@
 </div>
 
 <div *ngIf="app">
-    <h2>Ciao {{user.nome}} {{user.cognome}}.
-    <app-scooter-list [scooters]="scooterList"></app-scooter-list>
-    <app-rental-manager[serverMonoRent]="serverMonoRent"></app-rental-manager>
-    <app-breakdown [serverNonoOfficine]="serverMonoOfficine"></app-breakdown>
+    <h2>Ciao {{user.nome}} {{user.cognome}}.</h2>
+    <!--app-scooter-list [scooters]="scooterList"></app-scooter-list-->
+    <app-rental-manager [serverMonoRent]="serverMonoRent"></app-rental-manager>
+    <app-breakdown [serverMonoOfficine]="serverMonoOfficine"></app-breakdown>
 </div>
