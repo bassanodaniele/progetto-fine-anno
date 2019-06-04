@@ -1,3 +1,8 @@
-<p>
-  rental-manager works!
-</p>
+<div *ngIf="!scooterInUse">
+    codice monopattino: <input #scooter> <br>
+    <button (click)= "Start(scooter)"> ATTIVA </button>
+</div>
+
+<div *ngIf="scooterInUse">
+    <button (click)= "Stop()"> DISATTIVA </button>
+</div>
